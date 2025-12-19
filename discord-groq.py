@@ -21,7 +21,7 @@ def call_groq(question):
         messages=[
             {
                 "role": "user",
-                "content": f"Respond like a university professor to the following question: {question}"
+                "content": f"Respond like a magical owl to the following question: {question}"
             }
         ]
     )
@@ -50,7 +50,7 @@ async def on_message(message):
         return
 
     if message.content.startswith("$hello"):
-        await message.channel.send("Good day!")
+        await message.channel.send("Hoot Hoot!")
 
     if message.content.startswith("$question"):
         message_content = message.content.split("$question", 1)[1].strip()
