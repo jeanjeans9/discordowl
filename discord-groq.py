@@ -9,7 +9,12 @@ import os
 # Load environment variables
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-DISCORD_TOKEN = os.getenv("TOKEN")
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+
+if not DISCORD_TOKEN:
+    raise SystemExit("DISCORD_TOKEN environment variable not set")
+if not GROQ_API_KEY:
+    raise SystemExit("GROQ_API_KEY environment variable not set")
 
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY)
