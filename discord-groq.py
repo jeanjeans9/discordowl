@@ -1,3 +1,4 @@
+cat > discord-groq.py <<'PY'
 # Written by Ali Tobah based on code by
 # Dr. Abel Sanchez at https://github.com/abelsan/bot
 
@@ -5,6 +6,7 @@ from dotenv import load_dotenv
 from groq import Groq
 import discord
 import os
+import sys
 
 # Load environment variables
 load_dotenv()
@@ -12,9 +14,9 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 if not DISCORD_TOKEN:
-    raise SystemExit("DISCORD_TOKEN environment variable not set")
+    sys.exit("DISCORD_TOKEN environment variable not set")
 if not GROQ_API_KEY:
-    raise SystemExit("GROQ_API_KEY environment variable not set")
+    sys.exit("GROQ_API_KEY environment variable not set")
 
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY)
@@ -34,8 +36,6 @@ def call_groq(question):
     response = completion.choices[0].message.content
     print(response)
     return response
-
-
 
 
 # Discord setup
@@ -68,3 +68,4 @@ async def on_message(message):
 
 
 client.run(DISCORD_TOKEN)
+PY
