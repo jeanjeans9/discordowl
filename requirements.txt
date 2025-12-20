@@ -1,5 +1,3 @@
-cat > requirements.txt <<'TXT'
 python-dotenv
 discord.py
 groq
-TXT

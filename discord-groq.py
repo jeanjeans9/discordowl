@@ -1,4 +1,3 @@
-cat > discord-groq.py <<'PY'
 # Written by Ali Tobah based on code by
 # Dr. Abel Sanchez at https://github.com/abelsan/bot
 
@@ -68,4 +67,3 @@ async def on_message(message):
 
 
 client.run(DISCORD_TOKEN)
-PY
